@@ -4,16 +4,27 @@ import './App.css';
 function App() {
 
   const [colors, setColor] = useState(['#030AFA', '#FAF303' , '#0AFA03', '#FA0E03'])
+  const [sequence, setSequence] = useState([])
+
   const handleClick = (index) => {
-    console.log(index)
+    randomNumber()
   }
+
+  const randomNumber = () => {
+    const minNumber = 0;
+    const maxNumber = 3;
+    const randomNumber = Math.floor(Math.random() * (maxNumber - minNumber +1) + minNumber);
+    setSequence([...sequence, randomNumber]);
+  }
+
   return (
     
-    <div className="App">
+    <div>
 
       <header className="App-header">     
           Simon
       </header>
+      <p>{sequence}</p>
 
       <div className="container">
       {
@@ -38,8 +49,8 @@ export default App;
 
 /*
 1. Interfaz de cartón [SOLVED]
-2. Detectar click en los componentes
-3. Crear array para almacenar la secuencia del juego
+2. Detectar click en los componentes [SOLVED]
+3. Crear array para almacenar la secuencia del juego [SOLVED]
 4. Crear el color random para añadirlo a la secuencia
 5. Reproducir la secuencia --HARD
 6. Usuario intenta reproducir secuencia
