@@ -4,7 +4,9 @@ import './App.css';
 function App() {
 
   const [colors, setColor] = useState(['#030AFA', '#FAF303' , '#0AFA03', '#FA0E03'])
-
+  const handleClick = (index) => {
+    console.log(index)
+  }
   return (
     
     <div className="App">
@@ -16,7 +18,12 @@ function App() {
       <div className="container">
       {
         colors.map((color, index) => {
-          return <div key={index} className={`pad pad-${index}`} style={{backgroundColor:`${color}`}}> </div>
+          return <div key={index} 
+          className={`pad pad-${index}`} 
+          style={{backgroundColor:`${color}`}}
+          onClick={() => handleClick(index)}
+          >
+          </div>
         })
       }
 
@@ -30,7 +37,7 @@ function App() {
 export default App;
 
 /*
-1. Interfaz de cartón
+1. Interfaz de cartón [SOLVED]
 2. Detectar click en los componentes
 3. Crear array para almacenar la secuencia del juego
 4. Crear el color random para añadirlo a la secuencia
